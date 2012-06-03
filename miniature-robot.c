@@ -19,10 +19,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /*
           - kcsc.exe
           - adlock.exe
-	  - bfxt.exe
+		  - bfxt.exe
 */
 
-/* 
+/** 
     BF.net is a compiler for BrainfuckXT (http://esolangs.org/wiki/BrainfuckXT) targeting:
           - the .NET framework
           - Microsoft Windows
@@ -52,7 +52,6 @@ int main(int argc, char *argv[])
 {
     if (argc < 2)
     {
-       printf("Miniature-Robot Brainfuck/BrainfuckXT Compiler.\t[A : 1.0.0.0]\nCopyright (C) 2012.\n\n");
        printf("error: no input file\n");          
     }
     else if (argc == 2)           // single file
@@ -181,6 +180,7 @@ int main(int argc, char *argv[])
                                     fprintf(cs, "\t\tusing (System.IO.StreamWriter wObj = new System.IO.StreamWriter(str[strdex]))\n\t\t{\n\t\t\twObj.WriteLine(str[strdex + 1]);\n\t\t\twObj.Dispose();\n\t\t}\n");
                             break;
                             case '#':
+                                    fprintf(cs, "\t\tusing (System.IO.StreamReader rObj = new System.IO.StreamReader(str[strdex]))\n\t\t{\n\t\t\tstr[strdex + 1] = rObj.ReadToEnd();\n\t\t}\n");
                             break;
                       };
                   }                                                                              
